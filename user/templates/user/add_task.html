@@ -10,18 +10,32 @@
 </head>
 
 <body>
-    <form action="POST">
-        <div class="task">
-            <label for="taskname" class="form-label">Task</label>
-            <input type="email" class="form-control" id="task1" name ='taskname'>
-        </div>
+    <div>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="task">
+                <label for="task_name" class="form-label">Task</label>
+                <input type="text" class="form-control" id="tas_kname" name='taskname'>
+            </div>
 
-        <div class="description">
-            <label for="task_description" class="form-label">description</label>
-            <textarea class="form-control" id="description1" rows="3" name = 'description'></textarea>
-        </div>
-        <button type="submit">Add Task</button>
-    </form>
+            <div class="description">
+                <label for="task_description" class="form-label">description</label>
+                <textarea class="form-control" id="task_description" rows="3" name='description'></textarea>
+            </div>
+
+            {% comment %} <div class="completedate">
+                <label for="complete_date" class="form-label">Complete Date</label>
+                <input type="date" class="form-control" id="complete_date" name='completedate'>
+            </div> {% endcomment %}
+
+            {% comment %} <div class="status">
+                <label for="task_status" class="form-label">Status</label>
+                <input type="text" class="form-control" id="task_status" name='status'>
+            </div> {% endcomment %}
+            <a href=""><button type="submit" class="btn btn-primary">Add Task</button></a>
+            {{status}}
+        </form>
+    </div>
 </body>
 
 </html>
